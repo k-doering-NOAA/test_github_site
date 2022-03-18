@@ -15,13 +15,73 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             var msg = `# Checklist for reviews
-            
-            ## Content 
-            - [ ] First
-            - [ ] Second
-            
-            ## Style
-             - some bullets`
+            ## Readability
+
+            - [ ] Is the code easy to understand?
+            - [ ] Are there any parts of the code that are confusing?
+            - [ ] Is the data flow easy to understand?
+            - [ ] Is there any code commented out?
+            - [ ] Does the code include any unclear names
+            - [ ] Does the code include any errors, repeats, or incomplete sections?
+
+            ## Functionality
+
+            - [ ] Does the code function as it is expected to?
+            - [ ] How will the change impact other parts of the system?
+            - [ ] Are there any unhandled edge cases?
+            - [ ] Are there other code improvements possible?
+
+            # Design
+
+            - [ ] Are files organized intuitively?
+            - [ ] Are components divided up in a sensible way?
+            - [ ] Does the review include too many changes? Would the code change better be broken into more focused parts?
+            - [ ] Will the change be easy to maintain?
+            - [ ] Does the code follow object-oriented design principles?
+            - [ ] Is the code in the proper location?
+
+            # Security
+
+            - [ ] Does using this code open the software to possible security violations or vulnerabilities?
+            - [ ] Is the correct encryption used?
+
+            # Performance
+
+            - [ ] Are there ways to improve on the code's performance?
+            - [ ] Is there any complex logic that could be simplified?
+            - [ ] Could any of the code be replaced with built-in functions?
+            - [ ] Will this change have any impacts on system performance?
+            - [ ] Is there any debugging code that could be removed?
+            - [ ] Are there any optimizations that could be removed and still maintain system performance?
+
+            # Documentation
+
+            - [ ] Are there comments available to explain the code?
+            - [ ] Is the README file complete and current? Does it adequately describe the project/changes?
+
+            ## Testing
+
+            - [ ] Is the code testable?
+            - [ ] Is the automated testing adequate?
+            - [ ] Have dependencies been appropriately tested?
+            - [ ] Does automated testing cover the code exchange adequately?
+            - [ ] Could the test structure be improved?
+
+            ## Review Good Practices
+
+            Good reviews require good review habits. Try to follow these suggestions:
+
+            - Review in short sessions (< 60 minutes) to maintain focus and attention to detail
+            - Don't try to review more than 400 lines of code in a single session
+            - Provide constructive and supportive feedback
+            - Ask open-ended questions and offer alternatives or possible workarounds
+            - Avoid strong/opinionated statements
+            - Applaud good solutions
+            - Don't say "you"
+            - Be clear about which questions/comments are non-blocking or unimportant; likewise, be explicit when approving a change or requesting follow-up
+            - Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)
+            - Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html) to settle any style arguments
+            `
             const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
             github.issues.createComment({ issue_number, owner, repo, body: msg });
             

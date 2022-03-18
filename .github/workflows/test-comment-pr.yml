@@ -26,6 +26,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            var msg = `👋 Thanks for participating! I will review as soon as possible, usually within a few hours.
+
+            **Watch for notifications** as I may request some small changes to make sure this meets the guidelines.`
             const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
-            github.issues.createComment({ issue_number, owner, repo, body: '${{env.MY_STRING}}' });
+            github.issues.createComment({ issue_number, owner, repo, body: msg });
             

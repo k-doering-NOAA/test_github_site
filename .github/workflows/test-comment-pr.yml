@@ -14,73 +14,29 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            var msg = `# Checklist for reviews
-            ## Readability
-
-            - [ ] Is the code easy to understand?
-            - [ ] Are there any parts of the code that are confusing?
-            - [ ] Is the data flow easy to understand?
-            - [ ] Is there any code commented out?
-            - [ ] Does the code include any unclear names
-            - [ ] Does the code include any errors, repeats, or incomplete sections?
-
-            ## Functionality
-
-            - [ ] Does the code function as it is expected to?
-            - [ ] How will the change impact other parts of the system?
-            - [ ] Are there any unhandled edge cases?
-            - [ ] Are there other code improvements possible?
-
-            # Design
-
-            - [ ] Are files organized intuitively?
-            - [ ] Are components divided up in a sensible way?
-            - [ ] Does the review include too many changes? Would the code change better be broken into more focused parts?
-            - [ ] Will the change be easy to maintain?
-            - [ ] Does the code follow object-oriented design principles?
-            - [ ] Is the code in the proper location?
-
-            # Security
-
-            - [ ] Does using this code open the software to possible security violations or vulnerabilities?
-            - [ ] Is the correct encryption used?
-
-            # Performance
-
-            - [ ] Are there ways to improve on the code's performance?
-            - [ ] Is there any complex logic that could be simplified?
-            - [ ] Could any of the code be replaced with built-in functions?
-            - [ ] Will this change have any impacts on system performance?
-            - [ ] Is there any debugging code that could be removed?
-            - [ ] Are there any optimizations that could be removed and still maintain system performance?
-
-            # Documentation
-
-            - [ ] Are there comments available to explain the code?
-            - [ ] Is the README file complete and current? Does it adequately describe the project/changes?
-
-            ## Testing
-
-            - [ ] Is the code testable?
-            - [ ] Is the automated testing adequate?
-            - [ ] Have dependencies been appropriately tested?
-            - [ ] Does automated testing cover the code exchange adequately?
-            - [ ] Could the test structure be improved?
-
-            ## Review Good Practices
-
-            Good reviews require good review habits. Try to follow these suggestions:
-
-            - Review in short sessions (< 60 minutes) to maintain focus and attention to detail
-            - Don't try to review more than 400 lines of code in a single session
-            - Provide constructive and supportive feedback
-            - Ask open-ended questions and offer alternatives or possible workarounds
-            - Avoid strong/opinionated statements
-            - Applaud good solutions
-            - Don't say "you"
-            - Be clear about which questions/comments are non-blocking or unimportant; likewise, be explicit when approving a change or requesting follow-up
-            - Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)
-            - Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html) to settle any style arguments
+            var msg = `# Instructions for code reviewer
+            
+            Hello reviewer, thanks for taking the time to review this PR!
+            
+            - Please use this checklist during your review, checking off items that are completed! 
+            - Then, comment comment on the pull request with your review indicating where you have questions or changes need to be made before merging.
+            - Remember to Make sure to review **every line of code** you’ve been asked to review, look at the context, make sure you’re improving code health, and compliment developers on good things that they do.
+            - PR reviews are a great way to learn, so feel free to share your tips and tricks. However for changes not required to make, please include nit: (for nitpicking) before making the suggestion. For example, nit: I prefer using a data.frame() instead of a matrix because...
+            
+            ## Checklist
+            
+            - [ ] The code is well-designed.
+            - [ ] The functionality is good for the users of the code.
+            - [ ] Any User Interface changes are sensible and look good.
+            - [ ] Any parallel programming is done safely.
+            - [ ] The code isn’t more complex than it needs to be.
+            - [ ] The developer isn’t implementing things they might need in the future but don’t know they need now.
+            - [ ] Code has appropriate unit tests.
+            - [ ] Tests are well-designed.
+            - [ ] The developer used clear names for everything.
+            - [ ] Comments are clear and useful, and mostly explain why instead of what.
+            - [ ] Code is appropriately documented (doxygen and roxygen).
+            - [ ] The code conforms to our style guides.
             `
             const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
             github.issues.createComment({ issue_number, owner, repo, body: msg });

@@ -29,7 +29,7 @@ jobs:
               repo: context.repo.repo, 
               pull_number: context.payload.number });
             # use result.data to extract the issue number
-            echo result.data
+            #echo result.data
             # Add a milestone to an issue (just hardcode milestone for now)
             github.rest.issues.update({
               owner: context.repo.owner,

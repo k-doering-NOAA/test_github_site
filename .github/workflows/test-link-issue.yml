@@ -7,12 +7,13 @@
 
 name: Test out linking issue on opening PR
 on:
-  pull_request:
-    types: [opened, reopened] # could look at other build triggers: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
-
-jobs:
-  example_comment_pr:
+  pull_request_target:
+    types:
+      - closed
+      
+  add milestone:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true # only run if pull request is merged
     name: An example job to link to an issue as provided in the template
     steps:
       - name: Checkout
@@ -21,6 +22,20 @@ jobs:
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const result = github.rest.pulls.get({ owner: context.repo.owner, repo: context.repo.repo, pull_number: context.payload.number });
-            console.log(result.data)
+          script: | 
+            # get the text from the PR
+            const result = github.rest.pulls.get({ 
+              owner: context.repo.owner,
+              repo: context.repo.repo, 
+              pull_number: context.payload.number });
+            # use result.data to extract the issue number
+            echo result.data
+            # Add a milestone to an issue (just hardcode milestone for now)
+            github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: 1,
+              milestone: '3.30.20' });
+            # Update change log
+            # Open issues in other repos?
+            

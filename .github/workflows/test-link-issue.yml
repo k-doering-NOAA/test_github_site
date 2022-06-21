@@ -22,5 +22,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const result = github.rest.pulls.get({ owner: context.issue.number, repo: context.repo.repo, pull_number: context.issue.number });
+            const result = github.rest.pulls.get({ owner: context.issue.number, repo: context.repo.repo, pull_number: context.pulls.number });
             console.log(result)

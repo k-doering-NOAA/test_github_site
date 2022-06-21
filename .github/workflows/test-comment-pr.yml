@@ -1,5 +1,5 @@
 name: test out comment on a PR
-on: pull_request
+on: workflow_dispatch
 
 jobs:
   example_comment_pr:

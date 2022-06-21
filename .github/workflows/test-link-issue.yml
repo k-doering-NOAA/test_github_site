@@ -10,8 +10,8 @@ on:
   pull_request_target:
     types:
       - closed
-      
-  add milestone:
+jobs:
+  add-milestone:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true # only run if pull request is merged
     name: An example job to link to an issue as provided in the template

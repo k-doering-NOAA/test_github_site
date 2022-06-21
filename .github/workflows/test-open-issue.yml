@@ -16,5 +16,5 @@ jobs:
             github.rest.issues.create({
              owner: 'k-doering-NOAA',
              repo: 'learn_tmb',
-             title: 'test issue: title',
-             body: 'test issue: body' });
+             title: 'test issue title',
+             body: 'test issue body' });

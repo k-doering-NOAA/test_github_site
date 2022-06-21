@@ -37,5 +37,5 @@ jobs:
               issue_number: 1,
               milestone: '3.30.20' });
             # Update change log
-            # Open issues in other repos?
+            # Open issues in other repos: SSI, r4ss, doc
             

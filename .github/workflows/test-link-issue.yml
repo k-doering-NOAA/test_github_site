@@ -6,7 +6,7 @@
 #this is usually, but not always appropriate, so we may need to consider carefully).
 
 name: Test out linking issue on opening PR
-on: push
+on: workflow_dispatch
 #  pull_request_target:
 #    types:
 #      - closed

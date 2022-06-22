@@ -1,0 +1,16 @@
+name: Get info from the body of a pull request
+on: workflow_dispatch
+jobs:
+  get-info-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GH_PAT }}
+          script: |
+            const result = github.rest.pulls.get({ 
+              owner: context.repo.owner,
+              repo: context.repo.repo, 
+              pull_number: 22 });
+            console.log(result.data);
+            

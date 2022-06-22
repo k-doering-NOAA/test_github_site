@@ -7,7 +7,7 @@ jobs:
       - name: Update issue with milestone
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets. GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN}}
           script: | 
             # Add a milestone to an issue (just hardcode milestone for now)
             github.rest.issues.update({

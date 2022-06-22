@@ -12,5 +12,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: 20,
+              state: closed,
               milestone: 1 });
             

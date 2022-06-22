@@ -11,6 +11,6 @@ jobs:
             github.rest.issues.update({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: '20',
-              milestone: '3.30.20' });
+              issue_number: 20,
+              milestone: 3.30.20 });
             

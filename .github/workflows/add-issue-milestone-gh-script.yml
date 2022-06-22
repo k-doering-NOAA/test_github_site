@@ -7,8 +7,7 @@ jobs:
       - name: Update issue with milestone
         uses: actions/github-script@v6
         with:
-          script: | 
-            # Add a milestone to an issue (just hardcode milestone for now)
+          script: |
             github.rest.issues.update({
               owner: context.repo.owner,
               repo: context.repo.repo,

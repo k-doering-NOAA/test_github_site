@@ -8,8 +8,8 @@ jobs:
       - name: Create an issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.GH_PAT }}
-          repo: k-doering-NOAA/learn_tmb
+          github_token: ${{ secrets.GH_PAT }} #note: need to generate a PAT and add it to secrets (named as GH_PAT)
+          repo: nmfs-stock-synthesis/workflows
           title: Test making an issue
           body: |
             ## This week's TODO (please ignore this)

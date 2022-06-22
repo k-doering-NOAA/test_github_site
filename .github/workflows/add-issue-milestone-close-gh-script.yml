@@ -1,7 +1,7 @@
-name: Add a milestone to a issue using gh script
+name: Add a milestone to a issue and close using gh script
 on: workflow_dispatch
 jobs:
-  add-milestone-gh-script:
+  add-milestone-close-gh-script:
     runs-on: ubuntu-latest
     steps:
       - name: Update issue with milestone

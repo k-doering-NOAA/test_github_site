@@ -1,8 +1,7 @@
-name: Create an issue
+name: Use action-create-issue to open issue in another repo
 on: workflow_dispatch
 jobs:
-  create_issue:
-
+  action-create-issue:
     runs-on: ubuntu-latest
     steps:
       - name: Create an issue

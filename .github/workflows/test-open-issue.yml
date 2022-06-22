@@ -7,8 +7,8 @@ jobs:
       - name: Create an issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.github_token }}
-          repo: nmfs-stock-synthesis/workflows
+          github_token: ${{ secrets.API_TOKEN_GITHUB }}
+          repo: k-doering-NOAA/learn_tmb
           title: Test making an issue
           body: |
             ## This week's TODO (please ignore)

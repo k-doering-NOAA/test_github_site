@@ -1,6 +1,6 @@
 # create new issue using the gh pkg
 name: Open a new issue in a repo
-on: push
+on: workflow_dispatch
 
 jobs:
   test-issue-open:

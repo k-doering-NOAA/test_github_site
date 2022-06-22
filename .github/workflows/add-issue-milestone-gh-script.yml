@@ -1,0 +1,18 @@
+name: Add a milestone to a PR using gh script
+on: workflow-dispatch
+jobs:
+  add-milestone-gh-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update issue with milestone
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets. GITHUB_TOKEN}}
+          script: | 
+            # Add a milestone to an issue (just hardcode milestone for now)
+            github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: '1',
+              milestone: '3.30.20' });
+            

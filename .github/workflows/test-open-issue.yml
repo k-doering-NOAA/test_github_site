@@ -1,17 +1,17 @@
-name: test out comment on a PR
+name: Create an issue
 on: push
-
 jobs:
-  test-issue-open:
+  create_issue:
     runs-on: ubuntu-latest
-    name: An example job to comment a PR
     steps:
-      - name: create issue
-        uses: actions/github-script@v6
+      - name: Create an issue
+        uses: actions-ecosystem/action-create-issue@v1
         with:
-          script: |
-            github.rest.issues.create({
-             owner: 'k-doering-NOAA',
-             repo: 'learn_tmb',
-             title: 'test issue title',
-             body: 'test issue body' });
+          github_token: ${{ secrets.github_token }}
+          title: Test making an issue
+          body: |
+            ## This week's TODO
+            
+            - [ ] Have a meeting with UX team
+            - [ ] Check the dashboard
+          repo: k-doering-NOAA/learn_tmb

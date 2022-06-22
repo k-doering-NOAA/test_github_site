@@ -1,0 +1,18 @@
+name: Use github-script action to open an issue in a new repo.
+on: workflow_dispatch
+jobs:
+  open-issue-gh-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Open issue in other repo'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GH_PAT }}
+          script: | 
+            github.rest.issues.create({
+              owner: k-doering-NOAA,
+              repo: learn_tmb,
+              title: 'New issue',
+              body: 'More details about the issue.'
+            });
+            

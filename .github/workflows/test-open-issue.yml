@@ -12,7 +12,7 @@ jobs:
           repo: k-doering-NOAA/learn_tmb
           title: Test making an issue
           body: |
-            ## This week's TODO (please ignore)
+            ## This week's TODO (please ignore this)
             
             - [ ] Have a meeting with UX team
             - [ ] Check the dashboard

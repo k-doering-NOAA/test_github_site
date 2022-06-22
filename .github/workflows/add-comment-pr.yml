@@ -1,4 +1,4 @@
-name: test out comment on a PR
+name: comment on a PR
 on: workflow_dispatch
 
 jobs:

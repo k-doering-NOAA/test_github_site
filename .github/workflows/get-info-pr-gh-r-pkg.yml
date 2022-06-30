@@ -38,5 +38,5 @@ jobs:
              title = paste0("test posting issue for number ", info$number),
              body = paste0("Test out making an issue again"))
           }
-        shell: rscript {0}
+        shell: Rscript {0}
         

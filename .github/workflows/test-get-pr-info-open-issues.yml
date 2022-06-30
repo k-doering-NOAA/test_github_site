@@ -31,7 +31,7 @@ jobs:
           # allow some flexibility for getting the spacing wrong, which is easy to do.
           # look for checklist items like - []
           needs_changes <- grep("-\\s*\\[\\s*\\]", pr_body, ignore.case = TRUE, value = TRUE)
-          issue_title <- paste0("Changes need for SS3 PR , " info$number)
+          issue_title <- paste0("Changes need for SS3 PR ",  info$number)
           issue_body <- paste0("Changes are needed due to the merging of SS3 \n", 
             "PR #", info$number, ". Please see \n", 
             "https://github.com/nmfs-stock-synthesis/stock-synthesis/pull/", 

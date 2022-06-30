@@ -22,9 +22,9 @@ jobs:
             owner = "k-doering-noaa", 
             repo = "test_github_site",
             pull_number = "${{ github.event.pull_request.number }}") 
-          print(info)
           pr_body  <- strsplit(info$body, "\n" )[[1]]
           pr_body <- gsub("\r", "",  pr_body, fixed = TRUE)
+          writeLines("")
           # Get info on which repos need open issues, if a change log entry is needed.
           # allow some flexibility for getting the spacing wrong, which is easy to do.
           # look for checklist items like - []
@@ -34,9 +34,6 @@ jobs:
              owner = "k-doering-noaa", 
              repo = "learn_tmb", 
              title = paste0("test posting issue for number ", info$number),
-             body = paste0("Test out making an issue again [", info, "](https://github.com/k-doering-NOAA/test_github_site)"))
-          }
-          
-          
-          '
+             body = paste0("Test out making an issue again"))
+          }'
         

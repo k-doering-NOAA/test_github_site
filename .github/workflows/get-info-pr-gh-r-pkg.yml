@@ -18,5 +18,6 @@ jobs:
           Rscript -e 'info <- gh::gh("GET /repos/{owner}/{repo}/pulls/{pull_number}", 
             owner = "k-doering-noaa", 
             repo = "test_github_site",
-            pull_number = "${{ github.event.pull_request.number }}")'
+            pull_number = "${{ github.event.pull_request.number }}"); 
+          print(info)'
         

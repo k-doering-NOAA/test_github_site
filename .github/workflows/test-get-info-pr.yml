@@ -1,5 +1,5 @@
 name: Get info from the body of a pull request
-on: push
+on: workflow_dispatch
 jobs:
   get-info-pr:
     runs-on: ubuntu-latest

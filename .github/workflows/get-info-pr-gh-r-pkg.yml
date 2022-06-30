@@ -20,5 +20,5 @@ jobs:
             repo = "test_github_site",
             pull_number = pull_num)
           print(info)
-        shell: Rscript {0} "22"
+        shell: Rscript {0} "${{github.event.issue.number}}"
         

@@ -13,18 +13,20 @@ jobs:
         with:
           use-public-rspm: true
       - name: install the gh pkg
-        run: |
-          install.packages("gh")
+        run: install.packages("gh")
         shell: Rscript {0}
-      - name: Get info
+      - name: Get pr info and save
         run: |
           Rscript -e 'info <- gh::gh("GET /repos/{owner}/{repo}/pulls/{pull_number}", 
             owner = "k-doering-noaa", 
             repo = "test_github_site",
-            pull_number = "${{ github.event.pull_request.number }}") 
+            pull_number = "${{ github.event.pull_request.number }}")
+          saveRDS(info, file = "info.RDS")'
+      - name: Post issues, if needed
+        run: |
+          info <- readRDS("info.RDS")
           pr_body  <- strsplit(info$body, "\n" )[[1]]
           pr_body <- gsub("\r", "",  pr_body, fixed = TRUE)
-          writeLines("")
           # Get info on which repos need open issues, if a change log entry is needed.
           # allow some flexibility for getting the spacing wrong, which is easy to do.
           # look for checklist items like - []
@@ -35,5 +37,6 @@ jobs:
              repo = "learn_tmb", 
              title = paste0("test posting issue for number ", info$number),
              body = paste0("Test out making an issue again"))
-          }'
+          }
+        shell: rscript {0}
         

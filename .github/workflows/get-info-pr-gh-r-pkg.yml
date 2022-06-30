@@ -5,6 +5,7 @@ jobs:
   get-info-pr-gh-r-pkg:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
@@ -20,5 +21,5 @@ jobs:
             repo = "test_github_site",
             pull_number = pull_num)
           print(info)
-        shell: Rscript {0} ${{ github.event.issue.number }}
+        shell: Rscript {0} ${{ github.event.pull_request.number }}
         

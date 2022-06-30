@@ -1,5 +1,6 @@
 name: Use the gh R pkg to get info from a PR
-on: workflow_dispatch
+on:
+  pull_request:
 jobs:
   get-info-pr-gh-r-pkg:
     runs-on: ubuntu-latest
@@ -16,7 +17,7 @@ jobs:
           info <- gh::gh("GET /repos/{owner}/{repo}/pulls/{pull_number}", 
             owner = "k-doering-noaa", 
             repo = "test_github_site",
-            pull_number = "22")
+            pull_number = '${{ context.issue.number }}')
           print(info)
         shell: Rscript {0}
         

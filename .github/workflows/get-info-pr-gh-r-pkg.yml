@@ -17,7 +17,7 @@ jobs:
           info <- gh::gh("GET /repos/{owner}/{repo}/pulls/{pull_number}", 
             owner = "k-doering-noaa", 
             repo = "test_github_site",
-            pull_number = '${{ github.event.pull_request.payload.number }}')
+            pull_number = '${{ github.event.issue.number }}')
           print(info)
         shell: Rscript {0}
         

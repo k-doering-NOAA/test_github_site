@@ -1,7 +1,7 @@
 name: Use the gh R pkg to get info from a PR
 on:
-  pull_request:
-
+#  pull_request:
+  workflow_dispatch:
 jobs:
   get-info-pr-gh-r-pkg:
     runs-on: ubuntu-latest

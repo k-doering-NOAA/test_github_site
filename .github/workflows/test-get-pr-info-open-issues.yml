@@ -1,43 +1,46 @@
-name: Use the gh R pkg to get info from a PR and open issues in new repos
-on: workflow_dispatch
+name: Use the gh R pkg to get info from a PR
+on:
+  pull_request:
+
 jobs:
-  get-info-pr-gh-open-issue:
+  get-info-pr-gh-r-pkg:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GH_PAT }}
     steps:
+      - uses: actions/checkout@v3
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
       - name: install the gh pkg
-        run: |
-          install.packages("gh")
+        run: install.packages("gh")
         shell: Rscript {0}
-      - name: Get info
+      - name: Get pr info and save
         run: |
-          info <- gh::gh("GET /repos/{owner}/{repo}/pulls/{pull_number}", 
+          Rscript -e 'info <- gh::gh("GET /repos/{owner}/{repo}/pulls/{pull_number}", 
             owner = "k-doering-noaa", 
             repo = "test_github_site",
-            pull_number = "24")
+            pull_number = "${{ github.event.pull_request.number }}")
+          saveRDS(info, file = "info.RDS")'
+      - name: Post issues, if needed
+        run: |
+          info <- readRDS("info.RDS")
           pr_body  <- strsplit(info$body, "\n" )[[1]]
           pr_body <- gsub("\r", "",  pr_body, fixed = TRUE)
           # Get info on which repos need open issues, if a change log entry is needed.
           # allow some flexibility for getting the spacing wrong, which is easy to do.
           # look for checklist items like - []
           needs_changes <- grep("-\\s*\\[\\s*\\]", pr_body, ignore.case = TRUE, value = TRUE)
-          # just do an if statement for each to determine which changes 
-          r4ss <- change_log <- SSI <- manual <- FALSE
+          issue_title <- paste0("Changes need for SS3 PR , " info$number)
+          issue_body <- paste0("Changes are needed due to the merging of SS3 \n", 
+            "PR #", info$number, ". Please see \n", 
+            "https://github.com/nmfs-stock-synthesis/stock-synthesis/pull/", 
+            info$number, "\nand its associated issues for more information.")
           if (length(grep("r4ss", needs_changes)) == 1) {
-            r4ss <- TRUE
+            gh::gh("POST /repos/{owner}/{repo}/issues",
+             owner = "k-doering-noaa", 
+             repo = "learn_tmb", 
+             title = issue_title,
+             body = issue_body)
           }
-          if(length(grep("change log", needs_changes)) == 1) {
-            change_log <- TRUE
-          }
-          if(length(grep("SSI", needs_changes)) == 1) {
-            SSI <- TRUE
-          }
-          if(length(grep("manual", needs_changes)) == 1) {
-            manual <- TRUE
-          }
-          # Save the output to use in another step
-
         shell: Rscript {0}
-        

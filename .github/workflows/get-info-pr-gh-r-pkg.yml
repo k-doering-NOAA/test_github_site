@@ -14,10 +14,11 @@ jobs:
         shell: Rscript {0}
       - name: Get info
         run: |
+          pull_num <- commandArgs(trailingOnly = TRUE)
           info <- gh::gh("GET /repos/{owner}/{repo}/pulls/{pull_number}", 
             owner = "k-doering-noaa", 
             repo = "test_github_site",
-            pull_number = '${{ github.event.issue.number }}')
+            pull_number = pull_num)
           print(info)
-        shell: Rscript {0}
+        shell: Rscript {0} "22"
         

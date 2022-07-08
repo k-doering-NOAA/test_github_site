@@ -3,7 +3,6 @@ on:
   pull_request_target:
     types:
       - closed
-
 jobs:
   get-info-pr-gh-r-pkg:
     runs-on: ubuntu-latest
@@ -39,28 +38,31 @@ jobs:
             "PR #", info$number, ". Please see \n", 
             "https://github.com/nmfs-stock-synthesis/stock-synthesis/pull/", 
             info$number, "\nand its associated issues for more information.")
+          # temp msgs 
+          issue_title <- paste0("Testing gha please ignore")
+          issue_body <- "please ignore this test issue."
           # post r4ss issue if needed
           if (length(grep("r4ss", needs_changes)) == 1) {
             gh::gh("POST /repos/{owner}/{repo}/issues",
-             owner = "k-doering-noaa", 
-             repo = "learn_tmb", 
-             title = paste0("r4ss ", issue_title),
+             owner = "r4ss", 
+             repo = "r4ss", 
+             title = issue_title,
              body = issue_body)
           }
           # post SSI issue if needed
           if (length(grep("SSI", needs_changes)) == 1) {
                       gh::gh("POST /repos/{owner}/{repo}/issues",
-             owner = "k-doering-noaa", 
-             repo = "learn_tmb", 
-             title = paste0("SSI", issue_title),
+             owner = "nmfs-stock-synthesis", 
+             repo = "ssi", 
+             title = issue_title,
              body = issue_body)
           }
           # post documentation issue, if needed
           if (length(grep("manual", needs_changes)) == 1) {
             gh::gh("POST /repos/{owner}/{repo}/issues",
-             owner = "k-doering-noaa", 
-             repo = "learn_tmb", 
-             title = paste0("doc ", issue_title),
+             owner = "nmfs-stock-synthesis", 
+             repo = "doc", 
+             title = issue_title,
              body = issue_body)
           }
         shell: Rscript {0}

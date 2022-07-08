@@ -1,14 +1,15 @@
 name: Open issues on merging PRs in r4ss, doc, and SSI repos
 on:
-  pull_request_target:
-    types:
-      - closed
+  workflow_dispatch:
+#  pull_request_target:
+#    types:
+#      - closed
 jobs:
   ss3-pr-open-issues:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GH_PAT }}
-    if: github.event.pull_request.merged == true
+    #if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v3
       - uses: r-lib/actions/setup-r@v2

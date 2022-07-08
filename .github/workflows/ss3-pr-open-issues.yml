@@ -1,10 +1,10 @@
-name: Use the gh R pkg to get info from a PR
+name: Open issues on merging PRs in r4ss, doc, and SSI repos
 on:
   pull_request_target:
     types:
       - closed
 jobs:
-  get-info-pr-gh-r-pkg:
+  ss3-pr-open-issues:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GH_PAT }}
@@ -20,8 +20,8 @@ jobs:
       - name: Get pr info and save
         run: |
           Rscript -e 'info <- gh::gh("GET /repos/{owner}/{repo}/pulls/{pull_number}", 
-            owner = "k-doering-noaa", 
-            repo = "test_github_site",
+            owner = "nmfs-stock-synthesis", 
+            repo = "stock-synthesis",
             pull_number = "${{ github.event.pull_request.number }}")
           saveRDS(info, file = "info.RDS")'
       - name: Post issues, if needed
@@ -38,9 +38,6 @@ jobs:
             "PR #", info$number, ". Please see \n", 
             "https://github.com/nmfs-stock-synthesis/stock-synthesis/pull/", 
             info$number, "\nand its associated issues for more information.")
-          # temp msgs 
-          issue_title <- paste0("Testing gha please ignore")
-          issue_body <- "please ignore this test issue."
           # post r4ss issue if needed
           if (length(grep("r4ss", needs_changes)) == 1) {
             gh::gh("POST /repos/{owner}/{repo}/issues",

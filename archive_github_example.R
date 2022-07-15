@@ -24,4 +24,13 @@ unlink(local_dest_folder, recursive = TRUE)
 # again will upload a file with the same name, but a different id, which could
 # get confusing It would be nice to have a process for autodeleting older
 # versions of the archive (e.g., maybe keep 5 version, then delete anything
-# older?)
+# older? The gdrive pkg may have some tools for doing this)
+
+# might need to check on the auth, to make sure it is available when scheduling 
+# a job. One resource:
+#   See gargle's "Non-interactive auth" vignette for more details:
+# https://gargle.r-lib.org/articles/non-interactive-auth.html
+
+# Finally, need to set this up to run with windows task scheduler. May need to 
+# simply make a batch file in the same location as this script that contains
+# rscript archive_github_example.R as the instructions?

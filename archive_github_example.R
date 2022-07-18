@@ -1,5 +1,8 @@
 # Archive github repos using googledrive -----
-# call from powershell using rscript archive_github_example.R
+# using windows task scheduler, run the run_archive_github.bat file to run this
+# at a scheduled time.
+# If there is a way to set this up on gha, that would be preferable, as then it
+# doesn't require local settings.
 
 # setup -----
 # manual changes
@@ -34,7 +37,3 @@ lapply(files_to_upload, function(archive_file, local_dest_folder) {
  
 # cleanup ----
 unlink(local_dest_folder, recursive = TRUE)
-
-# Finally, need to set this up to run with windows task scheduler. May need to 
-# simply make a batch file in the same location as this script that contains
-# rscript archive_github_example.R as the instructions?

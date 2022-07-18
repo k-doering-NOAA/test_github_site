@@ -7,7 +7,10 @@
 # setup -----
 # manual changes
 org <- "r4ss" # could change to other github org names.
-
+# google drive folder where the backups will be added. This already exists in 
+# gdrive (set permissions on this folder on gdrive, and the uploads will inherit
+# them)
+backup_folder <- "https://drive.google.com/drive/u/0/folders/1Qbs9ts4cQ9XlJ2mj6ZQAMSR4dAFQSTup"
 #install.packages("googledrive")
 #devtools::install_github("ropensci-org/gitcellar")
 library(gitcellar)
@@ -26,7 +29,7 @@ gitcellar::download_organization_repos(org, dest_fold = local_dest_folder)
 files_to_upload <- list.files(local_dest_folder, recursive = TRUE)
 lapply(files_to_upload, function(archive_file, local_dest_folder) {
   local_file_path <- file.path(local_dest_folder, archive_file)
-  g_drive_path <- googledrive::as_id("https://drive.google.com/drive/u/0/folders/1Qbs9ts4cQ9XlJ2mj6ZQAMSR4dAFQSTup")
+  g_drive_path <- googledrive::as_id(backup_folder)
   g_drive_name <- basename(archive_file)
   # upload to google drive (expect needing some authentification, will be taken to browser)
   # drive put will either make a new file if one doesnt exist, or update the

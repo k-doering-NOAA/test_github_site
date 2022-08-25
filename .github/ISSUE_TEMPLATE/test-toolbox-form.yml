@@ -89,7 +89,7 @@ body:
     validations:
       required: true
   - type: checkboxes
-    id: drawer
+    id: modeltype
     attributes:
       label: Please check the model type
       description: Check any that apply.

@@ -14,7 +14,6 @@ body:
     attributes:
       label: Which drawer(s) of the toolbox does this tool belong in?
       description: Check any that apply.
-      multiple: true
       options:
         - label: Fish and Fisheries
         - label: Protected Species
@@ -101,12 +100,9 @@ body:
     attributes:
       label: Please check the model type
       description: Check any that apply.
-      multiple: true
       options:
         - label: first model type
         - label: second model type
-      validations:
-          required: false
   - type: textarea
     id: 
     attributes:
@@ -137,8 +133,6 @@ body:
       description: Check the box below if you use or plan to use [GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)
       options: 
         - label: I use or plan to use Github Releases
-      validations:
-        required: false
   - type: checkboxes
     id: tooltype
     attributes:
@@ -149,8 +143,6 @@ body:
         - label: Ecosystem Model
         - label: Management Strategy Evaluation
         - label: Shiny app.
-      validations:
-        required: false
   - type: textarea
     id: additionaltooltypes
     attributes:

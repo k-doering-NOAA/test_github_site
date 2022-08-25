@@ -103,8 +103,8 @@ body:
       description: Check any that apply.
       multiple: true
       options:
-        - label: ?
-        - label: ??
+        - label: first model type
+        - label: second model type
       validations:
           required: false
   - type: textarea

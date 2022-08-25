@@ -82,14 +82,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: modelname
-    attributes:
-      label: Please provide tool name
-      placeholder: SS3
-    validations:
-      required: true
-  - type: textarea
-    id: modelname
+    id: toolname
     attributes:
       label: Please provide tool name
       placeholder: SS3
@@ -101,8 +94,8 @@ body:
       label: Please check the model type
       description: Check any that apply.
       options:
-        - label: first model type
-        - label: second model type
+        - label: first
+        - label: second
   - type: textarea
     id: 
     attributes:
@@ -142,7 +135,7 @@ body:
         - label: Stock Assessment
         - label: Ecosystem Model
         - label: Management Strategy Evaluation
-        - label: Shiny app.
+        - label: Shiny app
   - type: textarea
     id: additionaltooltypes
     attributes:

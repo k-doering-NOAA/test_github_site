@@ -42,8 +42,6 @@ body:
         - label: Human Dimensions
         - label: Ecosystems
         - label: General Modeling
-      validations:
-        required: true
   - type: textarea
     id: associatedtools
     attributes:

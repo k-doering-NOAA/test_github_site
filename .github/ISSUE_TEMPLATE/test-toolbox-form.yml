@@ -9,6 +9,28 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this onboarding request! Please take a look at the [onboarding slidedeck](https://noaa-fisheries-integrated-toolbox.github.io/FIT-Onboarding-Presentation/) for details about the onboarding process.
+  - type: textarea
+    id: toolname
+    attributes:
+      label: Please provide tool name
+      placeholder: Stock Synthesis
+    validations:
+      required: true
+  - type: textarea
+    id: modelabbrev
+    attributes:
+      label: Please provide the tool abbreviation, if applicable
+      placeholder: SS3
+    validations:
+      required: false
+  - type: textarea
+    id: authorname
+    attributes:
+      label: Provide the name(s) of the Authors
+      description: Please include in the format provided
+      placeholder: Methot, R., Taylor, I., Johnson, K., and Doering, K.
+    validations:
+      required: true
   - type: checkboxes
     id: drawer
     attributes:
@@ -19,8 +41,9 @@ body:
         - label: Protected Species
         - label: Human Dimensions
         - label: Ecosystems
-        - label: General Modeling 
-          required: true
+        - label: General Modeling
+      validations:
+        required: true
   - type: textarea
     id: associatedtools
     attributes:
@@ -30,26 +53,18 @@ body:
     validations:
       required: false
   - type: textarea
-    id: authorname
-    attributes:
-      label: Provide the name(s) of the Authors
-      description: Please include in the format provided
-      placeholder: Taylor, I., Johnson, K., and Doering, K.
-    validations:
-      required: true
-  - type: textarea
     id: background
     attributes:
-      label: Please provide a paragraph of backgorund text.
+      label: Please provide a paragraph of background text on the tool.
       description: This will be the main text on the model landing page.
-      placeholder: The ASAP model is...
+      placeholder: The Age Structured Assessment Program (ASAP) is an age-structured model that uses forward computations assuming separability of fishing mortality into year and age components to estimate population sizes given observed catches, catch-at-age, and indices of abundance. Discards can be treated explicitly. The separability assumption is relaxed by allowing for fleet-specific computations and by allowing the selectivity at age to change smoothly over time or in blocks of years. The software can also allow the catchability associated with each abundance index to vary smoothly with time. The problem’s dimensions (number of ages, years, fleets and abundance indices) are defined at input and limited by hardware only. The input is arranged assuming data is available for most years, but missing years are allowed. The model currently does not allow use of length data nor indices of survival rates. Diagnostics include index fits, residuals in catch and catch-at-age, and effective sample size calculations. Weights are input for different components of the objective function and allow for relatively simple age-structured production model type models up to fully parameterized models. The calculation engine was built using AD Model Builder by Drs. Christopher M. Legault (currently at the NMFS Northeast Fisheries Science Center) and Victor R. Restrepo (currently at the NMFS Southeast Fisheries Science Center). ASAP has been used as an assessment tool for red grouper (SEFSC), yellowtail flounder (NEFSC), Pacific sardine (SWFSC), Pacific mackerel (SWFSC), Greenland halibut (ICES), Norther Gulf of St. Lawrence cod (DFO), Gulf of Maine cod (NEFSC), Florida lobster (FFWCC), and fluke (NEFSC).
     validations:
       required: true
   - type: textarea
     id: email
     attributes:
       label: Email
-      description: Please link an email associated with the tool. Use fisheries.toolbox@noaa.gov if another option is not available
+      description: Please link an email associated with the tool.
       placeholder: fisheries.toolbox@noaa.gov
     validations:
       required: true
@@ -74,20 +89,6 @@ body:
       placeholder: https://github.com/nmfs-fish-tools/SSMSE
     validations:
       required: false
-  - type: textarea
-    id: modelabbrev
-    attributes:
-      label: Please provide the tool abbreviation, if applicable
-      placeholder: SS3
-    validations:
-      required: false
-  - type: textarea
-    id: toolname
-    attributes:
-      label: Please provide tool name
-      placeholder: SS3
-    validations:
-      required: true
   - type: checkboxes
     id: modeltype
     attributes:

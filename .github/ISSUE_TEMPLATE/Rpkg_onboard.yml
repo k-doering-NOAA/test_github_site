@@ -9,20 +9,6 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this onboarding request! Please take a look at the [onboarding slidedeck](https://noaa-fisheries-integrated-toolbox.github.io/FIT-Onboarding-Presentation/) for details about the onboarding process.
-  - type: textarea
-    id: toolname
-    attributes:
-      label: Please provide tool name
-      placeholder: Stock Synthesis
-    validations:
-      required: true
-  - type: textarea
-    id: modelabbrev
-    attributes:
-      label: Please provide the tool abbreviation, if applicable
-      placeholder: SS3
-    validations:
-      required: false
   - type: checkboxes
     id: drawer
     attributes:
@@ -34,6 +20,13 @@ body:
         - label: Human Dimensions
         - label: Ecosystems
         - label: General Modeling
+  - type: textarea
+    id: githublink
+    attributes:
+      label: Provide a link to the github repo
+      placeholder: https://github.com/nmfs-fish-tools/SSMSE
+    validations:
+      required: true
   - type: textarea
     id: associatedtools
     attributes:
@@ -49,21 +42,6 @@ body:
       placeholder: https://nmfs-fish-tools.github.io/SSMSE/manual/
     validations:
       required: false
-  - type: textarea
-    id: githublink
-    attributes:
-      label: Provide a link to the github repo, if available.
-      placeholder: https://github.com/nmfs-fish-tools/SSMSE
-    validations:
-      required: false
-  - type: checkboxes
-    id: modeltype
-    attributes:
-      label: Please check the model type
-      description: Check any that apply.
-      options:
-        - label: first
-        - label: second
   - type: textarea
     id: 
     attributes:
@@ -84,27 +62,7 @@ body:
     id: context
     attributes:
       label: Additional context
-      description: Add any other context or screenshots about the feature request here.
-    validations:
-      required: false
-  - type: checkboxes
-    id: tooltype
-    attributes:
-      label: Type of tool
-      description: Check up to 5 keywords that describe the tool
-      options:
-        - label: Economics Model
-        - label: Visualization
-        - label: Stock Assessment Model
-        - label: Ecosystem Model
-        - label: Management Strategy Evaluation
-        - label: Shiny app
-  - type: textarea
-    id: additionaltooltypes
-    attributes:
-      label: Custom keywords
-      description:  Add up to 5 additional keywords that describe the tool. Separate them with commas.
-      placeholder: marine mammals, mapping, telemetry
+      description: Add any other context here.
     validations:
       required: false
   - type: checkboxes

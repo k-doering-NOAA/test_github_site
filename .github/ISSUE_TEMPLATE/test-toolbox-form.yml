@@ -74,6 +74,13 @@ body:
     validations:
       required: false
   - type: textarea
+    id: documentationlink
+    attributes:
+      label: Link a reference article for the tool for users to cite (preferably a DOI)
+      placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
+    validations:
+      required: false
+  - type: textarea
     id: exelink
     attributes:
       label: Provide a link to download the tool, if available.
@@ -131,7 +138,9 @@ body:
       label: Type of tool
       description: Check up to 5 keywords that describe the tool
       options:
-        - label: Stock Assessment
+        - label: Economics Model
+        - label: Visualization
+        - label: Stock Assessment Model
         - label: Ecosystem Model
         - label: Management Strategy Evaluation
         - label: Shiny app

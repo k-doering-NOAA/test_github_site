@@ -74,7 +74,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: documentationlink
+    id: citelink
     attributes:
       label: Link a reference article for the tool for users to cite (preferably a DOI)
       placeholder: https://doi.org/10.1016/j.fishres.2012.10.012

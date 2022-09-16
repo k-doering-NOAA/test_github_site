@@ -1,0 +1,117 @@
+name: Onboarding to FIT form for R packages
+description: Test out a condensed way for users to submit tools, if in an R package and using github releases.
+title: "[Onboarding]: "
+labels: ["status: triage_needed"]
+assignees:
+  - k-doering-NOAA
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this onboarding request! Please take a look at the [onboarding slidedeck](https://noaa-fisheries-integrated-toolbox.github.io/FIT-Onboarding-Presentation/) for details about the onboarding process.
+  - type: textarea
+    id: toolname
+    attributes:
+      label: Please provide tool name
+      placeholder: Stock Synthesis
+    validations:
+      required: true
+  - type: textarea
+    id: modelabbrev
+    attributes:
+      label: Please provide the tool abbreviation, if applicable
+      placeholder: SS3
+    validations:
+      required: false
+  - type: checkboxes
+    id: drawer
+    attributes:
+      label: Which drawer(s) of the toolbox does this tool belong in?
+      description: Check any that apply.
+      options:
+        - label: Fish and Fisheries
+        - label: Protected Species
+        - label: Human Dimensions
+        - label: Ecosystems
+        - label: General Modeling
+  - type: textarea
+    id: associatedtools
+    attributes:
+      label: Provide name and link of any associated tools
+      description:
+      placeholder: ASAP https://nmfs-fish-tools.github.io/ASAP/
+    validations:
+      required: false
+  - type: textarea
+    id: documentationlink
+    attributes:
+      label: Provide a link to documentation for the tool
+      placeholder: https://nmfs-fish-tools.github.io/SSMSE/manual/
+    validations:
+      required: false
+  - type: textarea
+    id: githublink
+    attributes:
+      label: Provide a link to the github repo, if available.
+      placeholder: https://github.com/nmfs-fish-tools/SSMSE
+    validations:
+      required: false
+  - type: checkboxes
+    id: modeltype
+    attributes:
+      label: Please check the model type
+      description: Check any that apply.
+      options:
+        - label: first
+        - label: second
+  - type: textarea
+    id: 
+    attributes:
+      label: Tool website
+      description: Please link the website for the tool, if it already has one
+      placeholder: https://vlab.noaa.gov/web/stock-synthesis
+    validations:
+      required: false
+  - type: textarea
+    id: 
+    attributes:
+      label: Link to online app
+      description: Please link the online application version of the tool, if applicable
+      placeholder: https://connect.fisheries.noaa.gov/DLMapper/
+    validations:
+      required: false                    
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.
+    validations:
+      required: false
+  - type: checkboxes
+    id: tooltype
+    attributes:
+      label: Type of tool
+      description: Check up to 5 keywords that describe the tool
+      options:
+        - label: Economics Model
+        - label: Visualization
+        - label: Stock Assessment Model
+        - label: Ecosystem Model
+        - label: Management Strategy Evaluation
+        - label: Shiny app
+  - type: textarea
+    id: additionaltooltypes
+    attributes:
+      label: Custom keywords
+      description:  Add up to 5 additional keywords that describe the tool. Separate them with commas.
+      placeholder: marine mammals, mapping, telemetry
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://noaa-fims.github.io/collaborative_workflow/code-of-conduct.html#code-of-conduct)
+      options:
+        - label: I agree to follow the FIT's [Code of Conduct](https://noaa-fims.github.io/collaborative_workflow/code-of-conduct.html#code-of-conduct)
+          required: true

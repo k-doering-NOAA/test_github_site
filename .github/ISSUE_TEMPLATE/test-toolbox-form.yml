@@ -147,8 +147,7 @@ body:
     id: keywords
     attributes:
       label: Keywords
-      description: Check up to 5 keywords that describe the tool. 
-      Have additional keyword suggestions? Include in the questions and comments section.
+      description: Check up to 5 keywords that describe the tool. Have additional keyword suggestions? Include in the questions and comments section.
       options:
         - label: Economics Model
         - label: Visualization

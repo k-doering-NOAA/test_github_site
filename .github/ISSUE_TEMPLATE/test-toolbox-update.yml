@@ -1,0 +1,29 @@
+name: Update Request
+description: Request that a software tool be updated in the NOAA Fisheries Integrated Toolbox (FIT).
+title: "Update Request: [tool name] "
+labels: ["Update Request"]
+assignees:
+  - k-doering-NOAA
+body:
+  - type: input
+    id: toolname
+    attributes:
+      label: Please provide the tool name
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe the changes needed
+      placeholder:
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/nmfs-fish-tools/Resources/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow the FIT's [Code of Conduct](https://github.com/nmfs-fish-tools/Resources/blob/main/CODE_OF_CONDUCT.md)
+          required: true

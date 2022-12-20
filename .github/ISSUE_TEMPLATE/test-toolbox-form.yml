@@ -61,7 +61,7 @@ body:
     id: references
     attributes:
       label: References (related to the tool, include name and DOI)
-      placeholder: Stock synthesis: A biological and statistical framework for fish stock assessment and fishery management, https://doi.org/10.1016/j.fishres.2012.10.012, 
+      placeholder: "Stock synthesis: A biological and statistical framework for fish stock assessment and fishery management, https://doi.org/10.1016/j.fishres.2012.10.012,"
     validations:
       required: false
   - type: textarea

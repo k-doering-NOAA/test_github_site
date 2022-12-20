@@ -162,8 +162,8 @@ body:
       label: Github Releases
       description: Does the codebase use releases on GitHub? (If not, we HIGHLY recommend considering using releases to keep the version number on the toolbox up to date)
       options: 
-        - Yes
-        - No
+        - "Yes"
+        - "No"
         - I plan to use them in the future
     validations:
       required: true

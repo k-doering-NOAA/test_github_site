@@ -1,19 +1,15 @@
 name: Onboarding Request
-description: Request that a software tool be onboarded to the NOAA Fisheries Integrated Toolbox (FIT).
+description: Request that a software tool be onboarded to the NOAA Fisheries Integrated Toolbox (FIT). Please take a look at the [onboarding slidedeck](https://noaa-fisheries-integrated-toolbox.github.io/FIT-Onboarding-Presentation/) for details about the onboarding process.
 title: "Onboarding Request: [tool name] "
 labels: ["Onboarding Request"]
 assignees:
   - k-doering-NOAA
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this onboarding request! Please take a look at the [onboarding slidedeck](https://noaa-fisheries-integrated-toolbox.github.io/FIT-Onboarding-Presentation/) for details about the onboarding process.
   - type: dropdown
     id: activedev
     attributes:
       label: Code status
-      description: Is the code or tool in active development? (If inactive, please consider whether there is a replacement tool that should instead be onboarded to the toolbox).
+      description: Is the code or tool in active development? (If inactive, please consider whether a replacement tool in active development would be more appropriate to onboard to the toolbox).
       options:
         - Active
         - Inactive
@@ -33,10 +29,10 @@ body:
       placeholder: SS3
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: authorname
     attributes:
-      label: Provide the name(s) of the Authors
+      label: Provide the name(s) of the author(s)
       description: Please include in the format provided
       placeholder: Rick Methot, Ian Taylor, Kelli Johnson
     validations:
@@ -45,7 +41,7 @@ body:
     id: contact
     attributes:
       label: Contact
-      description: Email address of main contact for this tool
+      description: Email address of maintainer for this tool
       placeholder: fisheries.toolbox@noaa.gov
     validations:
       required: true
@@ -75,6 +71,10 @@ body:
       required: false
 
   # Links to the Tool
+  - type: markdown
+    attributes:
+      value: |
+        Links to the tool - please provide as many as applicable, but at lease 1 link is required in order to onboard to FIT.
   - type: input
     id: onlineapplink
     attributes:
@@ -92,8 +92,7 @@ body:
   - type: input
     id: websitelink
     attributes:
-      label: Tool website
-      description: Link to website
+      label: Link to tool website
       placeholder: https://vlab.noaa.gov/web/stock-synthesis
     validations:
       required: false            
@@ -129,7 +128,7 @@ body:
     id: badges
     attributes:
       label: Link to badges
-      description:  Add up to 5 badges that you would like displayed. Separate them with commas.
+      description:  Add up to 3 badges that you would like displayed. Separate them with commas.
       placeholder: https://www.repostatus.org/badges/latest/active.svg, https://img.shields.io/badge/platform-linux%20%7Cwin-lightgrey
     validations:
       required: false
@@ -148,7 +147,8 @@ body:
     id: keywords
     attributes:
       label: Keywords
-      description: Check up to 5 keywords that describe the tool. Have other keyword suggests? Include in questions and comments.
+      description: Check up to 5 keywords that describe the tool. 
+      Have additional keyword suggestions? Include in the questions and comments section.
       options:
         - label: Economics Model
         - label: Visualization
@@ -170,7 +170,8 @@ body:
   - type: input
     id: versionnumber
     attributes:
-      label: If not using GitHub releases and the version number is not likely to change, please add the latest version number. Please don't provide a version number if it will change frequently, as we don't have a good way to make sure it stays up to date if not using GitHub releases.
+      label: Static version number
+      description: If not using GitHub releases and the version number is not likely to change, please add the latest version number. Please don't provide a version number if it will change frequently, as we don't have a good way to make sure it stays up to date if not using GitHub releases.
       placeholder: 0.9.0
     validations:
       required: false
@@ -190,7 +191,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://noaa-fims.github.io/collaborative_workflow/code-of-conduct.html#code-of-conduct)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/nmfs-fish-tools/Resources/blob/main/CODE_OF_CONDUCT.md)
       options:
-        - label: I agree to follow the FIT's [Code of Conduct](https://noaa-fims.github.io/collaborative_workflow/code-of-conduct.html#code-of-conduct)
+        - label: I agree to follow the FIT's [Code of Conduct](https://github.com/nmfs-fish-tools/Resources/blob/main/CODE_OF_CONDUCT.md)
           required: true

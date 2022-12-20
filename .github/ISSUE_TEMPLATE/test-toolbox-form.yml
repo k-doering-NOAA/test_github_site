@@ -9,6 +9,16 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this onboarding request! Please take a look at the [onboarding slidedeck](https://noaa-fisheries-integrated-toolbox.github.io/FIT-Onboarding-Presentation/) for details about the onboarding process.
+  - type: dropdown
+    id: activedev
+    attributes:
+      label: Code status
+      description: Is the code or tool in active development? (If inactive, please consider whether there is a replacement tool that should instead be onboarded to the toolbox)
+      options:
+        - Active
+        - Inactive
+    validations:
+      required: true
   - type: textarea
     id: toolname
     attributes:
@@ -19,37 +29,26 @@ body:
   - type: textarea
     id: modelabbrev
     attributes:
-      label: Please provide the tool abbreviation, if applicable
+      label: Please provide the tool abbreviation
       placeholder: SS3
     validations:
-      required: false
+      required: true
   - type: textarea
     id: authorname
     attributes:
       label: Provide the name(s) of the Authors
       description: Please include in the format provided
-      placeholder: Methot, R., Taylor, I., Johnson, K., and Doering, K.
+      placeholder: Rick Methot, Ian Taylor, Kelli Johnson
     validations:
       required: true
-  - type: checkboxes
-    id: drawer
-    attributes:
-      label: Which drawer(s) of the toolbox does this tool belong in?
-      description: Check any that apply.
-      options:
-        - label: Fish and Fisheries
-        - label: Protected Species
-        - label: Human Dimensions
-        - label: Ecosystems
-        - label: General Modeling
   - type: textarea
-    id: associatedtools
+    id: contact
     attributes:
-      label: Provide name and link of any associated tools
-      description:
-      placeholder: ASAP https://nmfs-fish-tools.github.io/ASAP/
+      label: Contact
+      description: Email addres of main contat for this tool
+      placeholder: fisheries.toolbox@noaa.gov
     validations:
-      required: false
+      required: true
   - type: textarea
     id: background
     attributes:
@@ -59,79 +58,91 @@ body:
     validations:
       required: true
   - type: textarea
-    id: email
+    id: references
     attributes:
-      label: Email
-      description: Please link an email associated with the tool.
-      placeholder: fisheries.toolbox@noaa.gov
-    validations:
-      required: true
-  - type: textarea
-    id: documentationlink
-    attributes:
-      label: Provide a link to documentation for the tool
-      placeholder: https://nmfs-fish-tools.github.io/SSMSE/manual/
+      label: References (related to the tool, include name and DOI)
+      placeholder: Stock synthesis: A biological and statistical framework for fish stock assessment and fishery management, https://doi.org/10.1016/j.fishres.2012.10.012, 
     validations:
       required: false
   - type: textarea
-    id: citelink
+    id: associatedtools
     attributes:
-      label: Link a reference article for the tool for users to cite (preferably a DOI)
-      placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
+      label: Provide name and link of any associated tools
+      description:
+      placeholder: ASAP https://nmfs-fish-tools.github.io/ASAP/
     validations:
       required: false
+
+  # Links to the Tool
   - type: textarea
-    id: exelink
-    attributes:
-      label: Provide a link to download the tool, if available.
-      placeholder: https://github.com/nmfs-fish-tools/SSMSE/releases
-    validations:
-      required: false     
-  - type: textarea
-    id: githublink
-    attributes:
-      label: Provide a link to the github repo, if available.
-      placeholder: https://github.com/nmfs-fish-tools/SSMSE
-    validations:
-      required: false
-  - type: checkboxes
-    id: modeltype
-    attributes:
-      label: Please check the model type
-      description: Check any that apply.
-      options:
-        - label: first
-        - label: second
-  - type: textarea
-    id: 
-    attributes:
-      label: Tool website
-      description: Please link the website for the tool, if it already has one
-      placeholder: https://vlab.noaa.gov/web/stock-synthesis
-    validations:
-      required: false
-  - type: textarea
-    id: 
+    id: onlineapplink
     attributes:
       label: Link to online app
       description: Please link the online application version of the tool, if applicable
       placeholder: https://connect.fisheries.noaa.gov/DLMapper/
     validations:
-      required: false                    
+      required: false
   - type: textarea
-    id: context
+    id: exelink
     attributes:
-      label: Additional context
-      description: Add any other context or screenshots about the feature request here.
+      label: Link to download executable(s)
+      placeholder: https://github.com/nmfs-fish-tools/SSMSE/releases
+    validations:
+      required: false
+  - type: textarea
+    id: websitelink
+    attributes:
+      label: Tool website
+      description: Link to website
+      placeholder: https://vlab.noaa.gov/web/stock-synthesis
+    validations:
+      required: false            
+  - type: textarea
+    id: documentationlink
+    attributes:
+      label: Link to documentation
+      placeholder: https://nmfs-fish-tools.github.io/SSMSE/manual/
+    validations:
+      required: false
+  - type: textarea
+    id: githublink
+    attributes:
+      label: Link to source code
+      placeholder: https://github.com/nmfs-fish-tools/SSMSE
+    validations:
+      required: false
+  # - type: textarea
+  #   id: citelink
+  #   attributes:
+  #     label: Link a reference article for the tool for users to cite (preferably a DOI)
+  #     placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
+  #   validations:
+  #     required: false
+  - type: textarea
+    id: pdflink
+    attributes:
+      label: If you would like to add a link to a pdf to download on the FIMS site (e.g., documentation or a publication), please add a URL below.
+    validations:
+      required: false
+  - type: textarea
+    id: badges
+    attributes:
+      label: Link to badges
+      description:  Add up to 5 badges that you would like displayed. Separate them with commas.
+      placeholder: https://www.repostatus.org/badges/latest/active.svg, https://img.shields.io/badge/platform-linux%20%7Cwin-lightgrey
     validations:
       required: false
   - type: checkboxes
-    id: releases
+    id: drawer
     attributes:
-      label: Github Releases
-      description: Check the box below if you use or plan to use [GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)
-      options: 
-        - label: I use or plan to use Github Releases
+      label: Which drawer(s) of the toolbox does this tool belong in?
+      description: Check any that apply.
+      options:
+        - label: Ecosystems
+        - label: Fish and Fisheries
+        - label: Human Dimensions
+        - label: Protected Species
+        - label: General Modeling and Productivity Tools
   - type: checkboxes
     id: tooltype
     attributes:
@@ -144,27 +155,30 @@ body:
         - label: Ecosystem Model
         - label: Management Strategy Evaluation
         - label: Shiny app
-  - type: textarea
-    id: additionaltooltypes
+  - type: dropdown
+    id: releases
     attributes:
-      label: Custom keywords
-      description:  Add up to 5 additional keywords that describe the tool. Separate them with commas.
-      placeholder: marine mammals, mapping, telemetry
+      label: Github Releases
+      description: Does the codebase use releases on GitHub? (If not, we HIGHLY recommend considering using releases to keep the version number on the toolbox up to date)
+      options: 
+        - label: Yes
+        - label: No
+        - label: I plan to use them in the future
     validations:
-      required: false
-  - type: textarea
-    id: badges
-    attributes:
-      label: Link to badges
-      description:  Add up to 5 badges that you would like displayed. Separate them with commas.
-      placeholder: https://www.repostatus.org/badges/latest/active.svg, https://img.shields.io/badge/platform-linux%20%7Cwin-lightgrey
-    validations:
-      required: false
+      required: true
   - type: textarea
     id: versionnumber
     attributes:
-      label: If not using github releases, please add the latest version number.
+      label: If not using GitHub releases and the version number is not likely to change, please add the latest version number. Please don't provide a version number if it will change frequently, as we don't have a good way to make sure it stays up to date if not using GitHub releases.
       placeholder: 0.9.0
+    validations:
+      required: false
+  - type: textarea
+    id: comments
+    attributes:
+      label: Questions and Comments
+      description: Please add any additional questions or comments
+      placeholder:
     validations:
       required: false
   # - type: checkboxes

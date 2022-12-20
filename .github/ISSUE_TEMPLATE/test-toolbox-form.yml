@@ -1,7 +1,7 @@
-name: Onboarding to FIT form
-description: Test out a new way for user to submit info for inclusion in the toolbox.
-title: "[Onboarding]: "
-labels: ["status: triage_needed"]
+name: Onboarding Request
+description: Request that a software tool be onboarded to the NOAA Fisheries Integrated Toolbox (FIT).
+title: "Onboarding Request: [tool name] "
+labels: ["Onboarding Request"]
 assignees:
   - k-doering-NOAA
 body:
@@ -13,20 +13,20 @@ body:
     id: activedev
     attributes:
       label: Code status
-      description: Is the code or tool in active development? (If inactive, please consider whether there is a replacement tool that should instead be onboarded to the toolbox)
+      description: Is the code or tool in active development? (If inactive, please consider whether there is a replacement tool that should instead be onboarded to the toolbox).
       options:
         - Active
         - Inactive
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: toolname
     attributes:
-      label: Please provide tool name
+      label: Please provide the tool name
       placeholder: Stock Synthesis
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: modelabbrev
     attributes:
       label: Please provide the tool abbreviation
@@ -41,11 +41,11 @@ body:
       placeholder: Rick Methot, Ian Taylor, Kelli Johnson
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: contact
     attributes:
       label: Contact
-      description: Email addres of main contat for this tool
+      description: Email address of main contact for this tool
       placeholder: fisheries.toolbox@noaa.gov
     validations:
       required: true
@@ -60,8 +60,9 @@ body:
   - type: textarea
     id: references
     attributes:
-      label: References (related to the tool, include name and DOI)
-      placeholder: "Stock synthesis: A biological and statistical framework for fish stock assessment and fishery management, https://doi.org/10.1016/j.fishres.2012.10.012,"
+      label: References
+      description: References related to the tool, include name and DOI
+      placeholder: "Stock synthesis: A biological and statistical framework for fish stock assessment and fishery management, https://doi.org/10.1016/j.fishres.2012.10.012"
     validations:
       required: false
   - type: textarea
@@ -74,22 +75,21 @@ body:
       required: false
 
   # Links to the Tool
-  - type: textarea
+  - type: input
     id: onlineapplink
     attributes:
-      label: Link to online app
-      description: Please link the online application version of the tool, if applicable
+      label: Link to online application
       placeholder: https://connect.fisheries.noaa.gov/DLMapper/
     validations:
       required: false
-  - type: textarea
+  - type: input
     id: exelink
     attributes:
       label: Link to download executable(s)
       placeholder: https://github.com/nmfs-fish-tools/SSMSE/releases
     validations:
       required: false
-  - type: textarea
+  - type: input
     id: websitelink
     attributes:
       label: Tool website
@@ -97,31 +97,32 @@ body:
       placeholder: https://vlab.noaa.gov/web/stock-synthesis
     validations:
       required: false            
-  - type: textarea
+  - type: input
     id: documentationlink
     attributes:
       label: Link to documentation
       placeholder: https://nmfs-fish-tools.github.io/SSMSE/manual/
     validations:
       required: false
-  - type: textarea
-    id: githublink
+  - type: input
+    id: sourcecodelink
     attributes:
       label: Link to source code
       placeholder: https://github.com/nmfs-fish-tools/SSMSE
     validations:
       required: false
-  # - type: textarea
+  # - type: input
   #   id: citelink
   #   attributes:
   #     label: Link a reference article for the tool for users to cite (preferably a DOI)
   #     placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
   #   validations:
   #     required: false
-  - type: textarea
+  - type: input
     id: pdflink
     attributes:
-      label: If you would like to add a link to a pdf to download on the FIMS site (e.g., documentation or a publication), please add a URL below.
+      label: PDF to download
+      description: If you would like to add a link to a pdf to download (e.g., documentation or a publication), please add a link below.
     validations:
       required: false
   - type: textarea
@@ -144,10 +145,10 @@ body:
         - label: Protected Species
         - label: General Modeling and Productivity Tools
   - type: checkboxes
-    id: tooltype
+    id: keywords
     attributes:
-      label: Type of tool
-      description: Check up to 5 keywords that describe the tool
+      label: Keywords
+      description: Check up to 5 keywords that describe the tool. Have other keyword suggests? Include in questions and comments.
       options:
         - label: Economics Model
         - label: Visualization
@@ -161,12 +162,12 @@ body:
       label: Github Releases
       description: Does the codebase use releases on GitHub? (If not, we HIGHLY recommend considering using releases to keep the version number on the toolbox up to date)
       options: 
-        - label: Yes
-        - label: No
-        - label: I plan to use them in the future
+        - Yes
+        - No
+        - I plan to use them in the future
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: versionnumber
     attributes:
       label: If not using GitHub releases and the version number is not likely to change, please add the latest version number. Please don't provide a version number if it will change frequently, as we don't have a good way to make sure it stays up to date if not using GitHub releases.

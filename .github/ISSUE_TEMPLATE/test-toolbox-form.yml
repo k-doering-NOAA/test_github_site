@@ -1,10 +1,14 @@
 name: Onboarding Request
-description: Request that a software tool be onboarded to the NOAA Fisheries Integrated Toolbox (FIT). Please take a look at the [onboarding slidedeck](https://noaa-fisheries-integrated-toolbox.github.io/FIT-Onboarding-Presentation/) for details about the onboarding process.
+description: Request that a software tool be onboarded to the NOAA Fisheries Integrated Toolbox (FIT).
 title: "Onboarding Request: [tool name] "
 labels: ["Onboarding Request"]
 assignees:
   - k-doering-NOAA
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting a tool onboarding request to FIT! Please take a look at the [onboarding slidedeck](https://noaa-fisheries-integrated-toolbox.github.io/FIT-Onboarding-Presentation/) for details about the onboarding process.
   - type: dropdown
     id: activedev
     attributes:

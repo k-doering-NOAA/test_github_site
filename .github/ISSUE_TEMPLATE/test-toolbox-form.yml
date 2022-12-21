@@ -19,26 +19,39 @@ body:
         - Inactive
     validations:
       required: true
+    # Links to the Tool
+  - type: markdown
+    attributes:
+      value: |
+        ## Basic Tool Metadata
   - type: input
     id: toolname
     attributes:
-      label: Please provide the tool name
+      label: Tool name
       placeholder: Stock Synthesis
     validations:
       required: true
   - type: input
     id: modelabbrev
     attributes:
-      label: Please provide the tool abbreviation
+      label: Tool abbreviation
       placeholder: SS3
     validations:
       required: true
   - type: input
     id: authorname
     attributes:
-      label: Provide the name(s) of the author(s)
+      label: Tool author(s)
       description: Please include in the format provided
-      placeholder: Rick Methot, Ian Taylor, Kelli Johnson
+      placeholder: Richard Methot, Ian Taylor, Kelli Johnson
+    validations:
+      required: true
+  - type: input
+    id: maintainername
+    attributes:
+      label: Tool maintainer
+      description: Please include in the format provided
+      placeholder: Richard Methot
     validations:
       required: true
   - type: input
@@ -52,9 +65,17 @@ body:
   - type: textarea
     id: background
     attributes:
-      label: Please provide a paragraph of background text on the tool.
-      description: This will be the main text on the model landing page.
+      label: Background Text
+      description: One paragraph general description of the tool for users. This will be the main text on the model landing page.
       placeholder: The Age Structured Assessment Program (ASAP) is an age-structured model that uses forward computations assuming separability of fishing mortality into year and age components to estimate population sizes given observed catches, catch-at-age, and indices of abundance. Discards can be treated explicitly. The separability assumption is relaxed by allowing for fleet-specific computations and by allowing the selectivity at age to change smoothly over time or in blocks of years. The software can also allow the catchability associated with each abundance index to vary smoothly with time. The problem’s dimensions (number of ages, years, fleets and abundance indices) are defined at input and limited by hardware only. The input is arranged assuming data is available for most years, but missing years are allowed. The model currently does not allow use of length data nor indices of survival rates. Diagnostics include index fits, residuals in catch and catch-at-age, and effective sample size calculations. Weights are input for different components of the objective function and allow for relatively simple age-structured production model type models up to fully parameterized models. The calculation engine was built using AD Model Builder by Drs. Christopher M. Legault (currently at the NMFS Northeast Fisheries Science Center) and Victor R. Restrepo (currently at the NMFS Southeast Fisheries Science Center). ASAP has been used as an assessment tool for red grouper (SEFSC), yellowtail flounder (NEFSC), Pacific sardine (SWFSC), Pacific mackerel (SWFSC), Greenland halibut (ICES), Norther Gulf of St. Lawrence cod (DFO), Gulf of Maine cod (NEFSC), Florida lobster (FFWCC), and fluke (NEFSC).
+    validations:
+      required: true
+  - type: input
+    id: citelink
+    attributes:
+      label: Citation
+      description: Let users know how to cite the tool. Preferably, link a reference article with DOI for the tool.
+      placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
     validations:
       required: true
   - type: textarea
@@ -68,17 +89,25 @@ body:
   - type: textarea
     id: associatedtools
     attributes:
-      label: Provide name and link of any associated tools
-      description:
-      placeholder: ASAP https://nmfs-fish-tools.github.io/ASAP/
+      label: Associated Tools
+      description: Provide name and link of any associated tools in format of example shown below
+      placeholder: r4ss https://r4ss.github.io/r4ss/, ss3sim https://ss3sim.github.io/ss3sim/
     validations:
       required: false
-
+  - type: input
+    id: orgs
+    attributes:
+      label: Organizations
+      description: List all science organizations that use this tool operationally (e.g., NOAA science centers, Regional Fishery Management Organizations)
+      placeholder: NOAA Northwest Fisheries Science Center, NOAA Southeast Fisheries Science Center, NOAA Southwest Fisheries Science Center
+    validations:
+      required: false
   # Links to the Tool
   - type: markdown
     attributes:
       value: |
-        Links to the tool - please provide as many as applicable, but at lease 1 link is required in order to onboard to FIT.
+        ## Links To the Tool
+        Please provide as many as applicable. At least 1 link is required in order to onboard to FIT.
   - type: input
     id: onlineapplink
     attributes:
@@ -114,33 +143,30 @@ body:
       placeholder: https://github.com/nmfs-fish-tools/SSMSE
     validations:
       required: false
-  # - type: input
-  #   id: citelink
-  #   attributes:
-  #     label: Link a reference article for the tool for users to cite (preferably a DOI)
-  #     placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
-  #   validations:
-  #     required: false
+  - type: markdown
+    attributes:
+      value: |
+        ## Detailed Tool Metadata
   - type: input
     id: pdflink
     attributes:
       label: PDF to download
-      description: If you would like to add a link to a pdf to download (e.g., documentation or a publication), please add a link below.
+      description: If you would like to add a link to a pdf to download (e.g., documentation or a publication), please add a link below. Please make sure this PDF is [508 compliant](https://www.section508.gov/create/pdfs/).
     validations:
       required: false
   - type: textarea
     id: badges
     attributes:
-      label: Link to badges
-      description:  Add up to 3 badges that you would like displayed. Separate them with commas.
+      label: Links to badges
+      description:  Add up to 3 [badges](https://shields.io/) that you would like displayed. Separate them with commas.
       placeholder: https://www.repostatus.org/badges/latest/active.svg, https://img.shields.io/badge/platform-linux%20%7Cwin-lightgrey
     validations:
       required: false
   - type: checkboxes
     id: drawer
     attributes:
-      label: Which drawer(s) of the toolbox does this tool belong in?
-      description: Check any that apply.
+      label: Toolbox Drawers
+      description: Which drawer(s) of the toolbox does this tool belong in? Check any that apply.
       options:
         - label: Ecosystems
         - label: Fish and Fisheries
@@ -232,7 +258,7 @@ body:
   - type: textarea
     id: comments
     attributes:
-      label: Questions and Comments
+      label: Comments
       description: Please add any additional questions or comments
       placeholder:
     validations:

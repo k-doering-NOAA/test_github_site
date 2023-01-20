@@ -1,0 +1,17 @@
+name: Update Issue
+
+on:
+  push:
+
+jobs:
+  update_issue:
+    runs-on: ubuntu-latest
+    
+    - name: Update Issue
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        issue-number: 49
+        body: |
+          Hello, this is an updated discussion.
+          With multiple lines.
+        reactions: hooray
